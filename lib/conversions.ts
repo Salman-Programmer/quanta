@@ -25,7 +25,30 @@ export function metersToLength(meters: number, unit: LengthUnit): number {
   return meters / LENGTH_TO_METERS[unit];
 }
 
+export const WEIGHT_UNITS = ["kg", "g", "lbs", "oz"] as const;
+export type WeightUnit = (typeof WEIGHT_UNITS)[number];
 
+export const WEIGHT_LABELS: Record<WeightUnit, string> = {
+  kg: "Kilograms",
+  g: "Grams",
+  lbs: "Pounds",
+  oz: "Ounces",
+};
+
+const WEIGHT_TO_KG: Record<WeightUnit, number> = {
+  kg: 1,
+  g: 0.001,
+  lbs: 0.45359237,
+  oz: 0.028349523125,
+};
+
+export function weightToKg(value: number, unit: WeightUnit): number {
+  return value * WEIGHT_TO_KG[unit];
+}
+
+export function kgToWeight(kg: number, unit: WeightUnit): number {
+  return kg / WEIGHT_TO_KG[unit];
+}
 
 export function formatNumber(value: number): string {
   if (!Number.isFinite(value)) return "";
