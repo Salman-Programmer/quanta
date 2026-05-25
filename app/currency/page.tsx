@@ -8,7 +8,7 @@ export default function CurrencyPage() {
       <PageHeader
         icon={Banknote}
         title="Currency Converter"
-        description="Live exchange rates from open.er-api.com — cached in memory, pair saved locally."
+        description="Live exchange rates from open.er-api.com."
       />
       <CurrencyConverter />
     </div>

@@ -6,7 +6,7 @@ const categories = [
   {
     href: "/length",
     title: "Length",
-    description: "Meters, kilometers, feet, inches, and miles — synced in real time.",
+    description: "Meters, kilometers, feet, inches, and miles.",
     icon: Ruler,
     accent: "from-indigo-500/20 to-violet-500/10",
     iconColor: "text-indigo-400",
@@ -14,7 +14,7 @@ const categories = [
   {
     href: "/weight",
     title: "Weight",
-    description: "Kilograms, grams, pounds, and ounces with instant bidirectional sync.",
+    description: "Kilograms, grams, pounds, and ounces.",
     icon: Scale,
     accent: "from-emerald-500/20 to-teal-500/10",
     iconColor: "text-emerald-400",
@@ -22,7 +22,7 @@ const categories = [
   {
     href: "/currency",
     title: "Currency",
-    description: "Live exchange rates with swap, persistence, and smart caching.",
+    description: "Live exchange rates.",
     icon: Banknote,
     accent: "from-amber-500/20 to-orange-500/10",
     iconColor: "text-amber-400",
@@ -31,26 +31,22 @@ const categories = [
 
 export default function DashboardPage() {
   return (
-    <div>
-      <header className="mb-10">
-        <p className="mb-2 text-sm font-medium uppercase tracking-widest text-accent">
-          Dashboard
-        </p>
+    <div className="flex flex-col items-center px-4">
+      <header className="mb-10 w-full max-w-5xl">
         <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
-          Convert anything, instantly
+          Convert anything.
         </h1>
         <p className="mt-3 max-w-2xl text-lg text-text-secondary">
           A premium, client-side toolkit for length, weight, and currency conversions.
-          Every field updates in real time — no submit buttons required.
         </p>
       </header>
 
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid w-full max-w-5xl gap-5 md:grid-cols-2 lg:grid-cols-3">
         {categories.map(({ href, title, description, icon: Icon, accent, iconColor }) => (
           <Link key={href} href={href} className="group block">
             <Card hover className="relative h-full overflow-hidden">
               <div
-                className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
+                className={`pointer-events-none absolute inset-0 bg-linear-to-br ${accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
               />
               <div className="relative">
                 <div className="mb-4 flex items-center justify-between">
@@ -68,22 +64,6 @@ export default function DashboardPage() {
           </Link>
         ))}
       </div>
-
-      <section className="mt-12 grid gap-4 sm:grid-cols-3">
-        {[
-          { label: "Length units", value: "5" },
-          { label: "Weight units", value: "4" },
-          { label: "Live currencies", value: "160+" },
-        ].map(({ label, value }) => (
-          <div
-            key={label}
-            className="rounded-2xl border border-border bg-surface-card px-5 py-4"
-          >
-            <p className="text-2xl font-bold text-text-primary">{value}</p>
-            <p className="mt-1 text-sm text-text-muted">{label}</p>
-          </div>
-        ))}
-      </section>
     </div>
   );
 }

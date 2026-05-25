@@ -8,7 +8,7 @@ export default function LengthPage() {
       <PageHeader
         icon={Ruler}
         title="Length Converter"
-        description="Edit any unit field — all others update instantly using precise conversion factors."
+        description="Edit any unit field."
       />
       <LengthConverter />
     </div>

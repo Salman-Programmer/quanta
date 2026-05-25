@@ -8,7 +8,7 @@ export default function WeightPage() {
       <PageHeader
         icon={Scale}
         title="Weight Converter"
-        description="Convert between kilograms, grams, pounds, and ounces with bidirectional sync."
+        description="Convert between kilograms, grams, pounds, and ounces."
       />
       <WeightConverter />
     </div>
